@@ -1,7 +1,19 @@
 <div class="container">
+    <app-game-control
+                      (start)="onStartGame($event)"
+                      (stop)="onStopGame($event)"
+                      >
+    </app-game-control>
+    <span *ngFor="let second of secondsArray">{{ second }} sec... </span>
+    <app-even [ngStyle]="{display: showEven()}"><span  > - {{ seconds }}</span></app-even>
+    <app-odd [ngStyle]="{display: showOdd()}" ><span  > - {{ seconds }}</span></app-odd>
+</div>
+
+
+<div class="container">
     <app-cockpit
-                 (serverCreated)="onServerAdded($event)"
-                 (blueprintCreated)="onBlueprintAdded($event)"
+                 (svCreated)="onServerAdded($event)"
+                 (bpCreated)="onBlueprintAdded($event)"
                  ></app-cockpit>
     <hr>
     
